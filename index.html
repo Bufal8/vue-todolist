@@ -16,10 +16,10 @@
         </div>
 
         <div class="new-task">
-            <input type="text" placeholder="Nuova task" v-model="newTask">
+            <input type="text" placeholder="Nuova task" v-model="newTask" @keyup.enter="aggiungiTask" >
             
             <!-- Al cliock o alla pressione del tasto ENTER esegui il method aggiungiTask -->
-            <button class="submit" @keyup.enter="aggiungiTask" @click="aggiungiTask">Aggiungi Task</button>
+            <button class="submit" @click="aggiungiTask">Aggiungi Task</button>
            
             <!-- Il v-if fa vedere il blocco assegnato se è vero altrimenti non lo rende visibile, pertanto basterà inserire il data 'error' all'interno di v-if per rendere responsiva questa istanza -->
             <div class="error" v-if="error">
@@ -30,8 +30,8 @@
 
         <div class="task-manager">
             <ul>
-                <li class="task" v-for="task in tasks">
-                    {{testoTask}}
+                <li class="task" v-for="(task, index) in tasks">
+                    {{task.tasks}}
                     <i class="fa-solid fa-x" @click="rimuoviTask(index)"></i> 
                 </li>
             </ul>

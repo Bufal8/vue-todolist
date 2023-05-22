@@ -23,16 +23,12 @@ createApp({
     data(){
         return {
             error: false,
-            newTask: {
-                testoTask: '',
-                doneTask: false
-            },
+            newTask: '',
             tasks: [
                 {
                     testoTask: '',
                     doneTask: false
-                },
-                
+                }
             ]
         }
     },
@@ -42,7 +38,6 @@ createApp({
             if(this.newTask !== '' && this.newTask.length >= 5){
                 // Inserisco nell'array tasks la newTask inserita nell input utilizzando unshift che svolge la stessa funzione di un push ma aggiunge per primo l'elemento invece che in fondo
                 this.tasks.unshift(this.newTask);
-                
                 // se entro in questa condizione significa che non c'è un errore quindi setto il valore del data error su false
                 this.error = false;
             }else{
@@ -51,7 +46,7 @@ createApp({
             }
 
             // Svuoto il box newTask
-            this.newTask='';
+            this.newTask.testoTask='';
         },
         rimuoviTask(indice){
             // Con il metodo nativo di js 'splice' posso selezionare un elemento tramite la posizione (in questo caso indicato con l'indice) e dopo la virgola indicare quanti cancellarne (in questo caso 1)
