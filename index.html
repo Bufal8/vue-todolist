@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Boo-do List</title>
+</head>
+<body>
+    <div id="app">
+        
+        <div class="logo">
+
+        </div>
+
+        <div class="new-task">
+            <input type="text" placeholder="Nuova task" v-model="newTask">
+            
+            <!-- Al cliock o alla pressione del tasto ENTER esegui il method aggiungiTask -->
+            <button class="submit" @keyup.enter="aggiungiTask" @click="aggiungiTask">Aggiungi Task</button>
+           
+            <!-- Il v-if fa vedere il blocco assegnato se è vero altrimenti non lo rende visibile, pertanto basterà inserire il data 'error' all'interno di v-if per rendere responsiva questa istanza -->
+            <div class="error" v-if="error">
+                <small style="color: red;">Almeno 5 caratteri</small>
+            </div>
+        
+        </div>
+
+        <div class="task-manager">
+            <ul>
+                <li class="task" v-for="task in tasks">
+                    {{testoTask}}
+                    <i class="fa-solid fa-x" @click="rimuoviTask(index)"></i> 
+                </li>
+            </ul>
+            <!-- Fai apparire qusta stringa solo se non ci sono task -->
+            <h2 v-if="tasks.length === 0" >Non ci sono tasks!</h2>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
