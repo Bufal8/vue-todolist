@@ -45,7 +45,7 @@ createApp({
             }
 
             // Svuoto il box newTask
-            this.newTask.testoTask='';
+            this.newTask='';
         },
         rimuoviTask(indice){
             // Con il metodo nativo di js 'splice' posso selezionare un elemento tramite la posizione (in questo caso indicato con l'indice) e dopo la virgola indicare quanti cancellarne (in questo caso 1)
