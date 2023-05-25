@@ -24,20 +24,19 @@ createApp({
         return {
             error: false,
             newTask: '',
-            tasks: [
-                {
-                    testoTask: '',
-                    doneTask: false
-                }
-            ]
+            tasks: []
         }
     },
     methods: {
         aggiungiTask(){
             // Controllo possibile stringa vuota: se newTask è diverso da stringa vuota e più lungo di 5 caratteri
             if(this.newTask !== '' && this.newTask.length >= 5){
-                // Inserisco nell'array tasks la newTask inserita nell input utilizzando unshift che svolge la stessa funzione di un push ma aggiunge per primo l'elemento invece che in fondo
-                this.tasks.unshift(this.newTask);
+                const newItem = {
+                    testoTask: this.newTask,
+                    doneTask: false
+                }
+                // Inserisco nell'array tasks la newItem inserita nell input utilizzando unshift che svolge la stessa funzione di un push ma aggiunge per primo l'elemento invece che in fondo
+                this.tasks.unshift(newItem);
                 // se entro in questa condizione significa che non c'è un errore quindi setto il valore del data error su false
                 this.error = false;
             }else{
